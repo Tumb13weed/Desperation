@@ -27,12 +27,9 @@ window.onload = function () {
 
 	window.visdown = function () {
 		console.log('visdown');
-		var markdownText = input.value;		
-        IncrementalDOM.patch(
-			output, 
-			md.renderToIncrementalDOM(markdownText)
-		);
-		vegaliteRender();
+		var markdownText = input.innerHTML;
+		output.innerHTML = marked (markdownText, {renderer: renderer});
+        	vegaliteRender();
 	}
 	visdown()
 }
